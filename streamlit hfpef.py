@@ -60,16 +60,15 @@ for feature in FEATURES:
     else:
         user_input[feature] = st.number_input(f"{feature}:", step=0.1)
 
-# دکمه پیش‌بینی
 if st.button("🔍 Estimate 🔍"):
     try:
         input_df = pd.DataFrame([user_input])
         input_df["sesso"] = input_df["sesso"].astype('category')
 
-        # اعمال pipeline
+        
         transformed_input = pipeline.transform(input_df)
 
-        # پیش‌بینی توسط هر مدل
+        
         prob_log = log_model.predict_proba(transformed_input)[0][1]
         prob_rf = rf_model.predict_proba(transformed_input)[0][1]
         prob_gb = xgb_model.predict_proba(transformed_input)[0][1]
@@ -84,7 +83,7 @@ if st.button("🔍 Estimate 🔍"):
         else:
             st.success("✅ Low Risk of HFpEF Detected 🎉")
 
-        # نمودار مقایسه‌ای
+        
         fig, ax = plt.subplots()
         sns.barplot(x=["Logistic", "Random Forest", "XGBoost"], y=[prob_log, prob_rf, prob_gb], palette="Set2", ax=ax)
         ax.set_ylim(0, 1)
@@ -93,7 +92,7 @@ if st.button("🔍 Estimate 🔍"):
         st.pyplot(fig)
 
     except Exception as e:
-        st.error(f"❌ خطا در پیش‌بینی: {e}")
+        st.error(f"❌ {e}")
         st.success("💃🥳YOHOOOOOOOOOO, Low Risk of HFpEF 🥳💃")
 
     # Bar chart for comparison
