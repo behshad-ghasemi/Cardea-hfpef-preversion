@@ -11,7 +11,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.decomposition import PCA
 import joblib
-from my_transforms import CustomTransformer
+
 
 import sklearn
 print(sklearn.__version__)
