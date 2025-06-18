@@ -82,7 +82,7 @@ full_pipeline = Pipeline([
 st.title("🫀 Heart Failure (HFpEF) Probability Prediction 🫀")
 
 st.markdown("Do not hesitate to reach us for further questions:")
-st.markdown(" Dr. Fusco , Manager: info@cardeasrl.it ")
+st.markdown(" 🏢 Dr. Fusco , Manager: info@cardeasrl.it ")
 st.markdown(" 👩‍💻 Behshad , programmer : b.ghaseminezhadabdol@studio.unibo.it ")
 
 st.markdown("Insert the patient's clinical data below to estimate the probability of HFpEF. ")
