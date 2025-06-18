@@ -10,6 +10,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.decomposition import PCA
+import joblib
 
 pipeline = joblib.load('data_with_pca.joblib')
 # Load models and pipeline
