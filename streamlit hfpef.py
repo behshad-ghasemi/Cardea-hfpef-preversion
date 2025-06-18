@@ -35,6 +35,20 @@ FEATURES = ["BSA (non toccare)", 'Epicardial fat thickness (mm)', 'LVEDD (mm)', 
             'PAS (mmHg)', 'PAD (mmHg)', 'NT-pro-BNP (pg/mL)',
             'Fibrillazione atriale parossistica (0, assente; 1, presente)',
             'Fibrillazione atriale cronica (0, assente; 1, presente)', 'Fumo (0 no; 1 si)', 'sesso']
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', Pipeline([
+            ('imputer', SimpleImputer(strategy='median')),
+            ('scaler', StandardScaler())
+        ]), NUM_FEATURES),
+        
+        ('cat', Pipeline([
+            ('imputer', SimpleImputer(strategy='most_frequent')),
+            ('onehot', OneHotEncoder(handle_unknown='ignore'))
+        ]), CAT_FEATURES)
+    ],
+    remainder='drop'  
+)
 full_pipeline = Pipeline([
     ('preprocessing', preprocessor),
     ('pca', PCA(n_components=0.95))
