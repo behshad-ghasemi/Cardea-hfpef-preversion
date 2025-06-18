@@ -79,7 +79,7 @@ full_pipeline = Pipeline([
     ('pca', PCA(n_components=0.95))
 ])
 
-st.title("🫀 Heart Failure (HFpEF) Probability Prediction 🫀")
+st.title("🫀 HFpEF Probability 🫀")
 
 st.markdown("Do not hesitate to reach us for further questions:")
 st.markdown(" 🏢 Dr. Fusco , Manager: info@cardeasrl.it ")
