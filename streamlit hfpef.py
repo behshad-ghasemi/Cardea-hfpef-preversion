@@ -60,19 +60,18 @@ CAT_FEATURES = [
 ]
 
 
-preprocessor = ColumnTransformer(
-    transformers=[
-        ('num', Pipeline([
-            ('imputer', SimpleImputer(strategy='median')),
-            ('scaler', StandardScaler())
-        ]), NUM_FEATURES),
-        
-        ('cat', Pipeline([
-            ('imputer', SimpleImputer(strategy='most_frequent')),
-            ('onehot', OneHotEncoder(handle_unknown='ignore'))
-        ]), CAT_FEATURES)
-    ],
-    remainder='drop'  
+preprocessor = make_column_transformer(
+    (Pipeline([
+        ('imputer', SimpleImputer(strategy='median')),
+        ('scaler', StandardScaler())
+    ]), NUM_FEATURES),
+    
+    (Pipeline([
+        ('imputer', SimpleImputer(strategy='most_frequent')),
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))
+    ]), CAT_FEATURES),
+    
+    remainder='drop'
 )
 full_pipeline = Pipeline([
     ('preprocessing', preprocessor),
