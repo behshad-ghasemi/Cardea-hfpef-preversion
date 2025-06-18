@@ -13,7 +13,8 @@ from sklearn.decomposition import PCA
 import joblib
 
 
-
+import sklearn
+print(sklearn.__version__)
 
 FEATURES = ["BSA (non toccare)", 'Epicardial fat thickness (mm)', 'LVEDD (mm)', 'LVESD (mm)', 'LV mass (g)',
             'LV mass i (g/m2) Calcolo automatico', 'LAD (mm)', 'LAV (ml)', 'iLAV (mL/m2) Calcolo automatico',
