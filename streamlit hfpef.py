@@ -81,7 +81,8 @@ full_pipeline = Pipeline([
 
 st.title("🫀 Heart Failure (HFpEF) Probability Prediction 🫀")
 st.markdown("Insert the patient's clinical data below to estimate the probability of HFpEF. ")
-st.markdown("👩‍💻 Good Prediction, \n Behshad & Dr Fusco ")
+st.markdown("Good Prediction!!, ")
+st.markdown("👩‍💻 Behshad & Dr. Fusco ")
 
 @st.cache_resource
 def load_models():
