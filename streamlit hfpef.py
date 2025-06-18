@@ -11,8 +11,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.decomposition import PCA
 import joblib
-
-pipeline = joblib.load('data_with_pca.joblib')
+from transformers import CustomTransformer
 # Load models and pipeline
 log_model = joblib.load("Logistic_model.joblib")
 rf_model = joblib.load("randomforest_model.joblib")
