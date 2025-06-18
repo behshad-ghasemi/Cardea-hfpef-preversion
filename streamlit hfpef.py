@@ -13,11 +13,7 @@ from sklearn.decomposition import PCA
 import joblib
 
 
-# Load models and pipeline
-log_model = joblib.load("Logistic_model.joblib")
-rf_model = joblib.load("randomforest_model.joblib")
-xgb_model = joblib.load("xgboost_model.joblib")
-pipeline = joblib.load("data_with_pca.joblib")
+
 
 FEATURES = ["BSA (non toccare)", 'Epicardial fat thickness (mm)', 'LVEDD (mm)', 'LVESD (mm)', 'LV mass (g)',
             'LV mass i (g/m2) Calcolo automatico', 'LAD (mm)', 'LAV (ml)', 'iLAV (mL/m2) Calcolo automatico',
