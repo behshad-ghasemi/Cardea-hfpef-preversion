@@ -34,6 +34,10 @@ FEATURES = ["BSA (non toccare)", 'Epicardial fat thickness (mm)', 'LVEDD (mm)', 
             'PAS (mmHg)', 'PAD (mmHg)', 'NT-pro-BNP (pg/mL)',
             'Fibrillazione atriale parossistica (0, assente; 1, presente)',
             'Fibrillazione atriale cronica (0, assente; 1, presente)', 'Fumo (0 no; 1 si)', 'sesso']
+full_pipeline = Pipeline([
+    ('preprocessing', preprocessor),
+    ('pca', PCA(n_components=0.95))
+])
 
 st.title("🫀 Heart Failure (HFpEF) Probability Prediction 🫀")
 st.markdown("Insert the patient's clinical data below to estimate the probability of HFpEF. ")
