@@ -82,15 +82,19 @@ st.title("🫀 Heart Failure (HFpEF) Probability Prediction 🫀")
 st.markdown("Insert the patient's clinical data below to estimate the probability of HFpEF. ")
 st.markdown("👩‍💻 Good Prediction,Behshad 🥰")
 
+@st.cache_resource
+def load_models():
+    try:
+        pipeline = joblib.load("data_with_pca.joblib")
+        log_model = joblib.load("Logistic_model.joblib")
+        rf_model = joblib.load("randomforest_model.joblib")
+        xgb_model = joblib.load("xgboost_model.joblib")
+        return pipeline, log_model, rf_model, xgb_model
+    except Exception as e:
+        st.error(f"Error loading models: {e}")
+        st.stop()
 
-try:
-    pipeline = joblib.load("data_with_pca.joblib")
-    log_model = joblib.load("Logistic_model.joblib")
-    rf_model = joblib.load("randomforest_model.joblib")
-    xgb_model = joblib.load("xgboost_model.joblib")
-except Exception as e:
-    st.error(f"❌{e}")
-    st.stop()
+pipeline, log_model, rf_model, xgb_model = load_models()
 
 
 user_input = {}
